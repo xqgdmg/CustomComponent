@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private SwitchToggleView mSwitchToggleView;
     private SwitchLayout mSwitchLayout;
     private Button mBtnRevert;
+    private Button mBtnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,18 @@ public class MainActivity extends AppCompatActivity {
          // 交叉布局
         switchLayout();
 
+        goNextDemo();
+
+    }
+
+    private void goNextDemo() {
+        mBtnNext = (Button) findViewById(R.id.btnNext);
+        mBtnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     /**
