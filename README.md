@@ -1,4 +1,5 @@
 # CustomComponent
+View 的大概情况
 public class MyView extends View {
 
 	private static final String TAG = "MyView";
@@ -40,6 +41,61 @@ public class MyView extends View {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		//setMeasuredDimension决定View的宽和高
 //		setMeasuredDimension(50, 50);
+	}
+
+}
+
+
+ViewGroup 的大概情况
+public class MyViewGroup extends ViewGroup {
+
+	private static final String TAG = "MyViewGroup";
+	private View mChild;
+	
+	public MyViewGroup(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	
+	}
+	
+	
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+		
+		mChild = getChildAt(0);
+		//看看孩子测量的宽高
+		int childWidth = mChild.getMeasuredWidth();
+		int childHeight = mChild.getMeasuredHeight();
+		
+//		Log.d(TAG, "child width height " + childWidth + " " + childHeight);
+		
+		//去获取孩子向我申请的宽高
+		LayoutParams layoutParams = mChild.getLayoutParams();
+		int width = layoutParams.width;
+		int height = layoutParams.height;
+		
+		
+		//作为一个父容器，有责任去测量孩子
+		//传入对孩子宽高的期望
+		int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(width, MeasureSpec.EXACTLY);//组装measurespec
+		int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);//组装measurespec
+		//测量孩子
+		mChild.measure(childWidthMeasureSpec, childHeightMeasureSpec);
+//		Log.d(TAG, "child width height " + childWidth + " " + childHeight);
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+	}
+
+	@Override
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+		//布局孩子
+		//指定孩子上下左右的位置
+		int left = 30;
+		int top = 20;
+		int right = left + mChild.getMeasuredWidth();//获取测量后的宽高
+		int bottom = top + mChild.getMeasuredHeight();
+		
+		Log.d(TAG, "child get width " + mChild.getWidth());//获取布局后的宽高
+		mChild.layout(left, top, right, bottom);
+		Log.d(TAG, "child get width " + mChild.getWidth());//获取布局后的宽高
 	}
 
 }
