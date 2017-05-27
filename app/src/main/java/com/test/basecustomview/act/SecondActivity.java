@@ -44,7 +44,7 @@ public class SecondActivity extends Activity{
      */
     private void mockData() {
         chartData = new ArrayList<ChartInfo>();
-        ChartInfo chartInfo1 = new ChartInfo("1900.01",11.001111111111f);
+        ChartInfo chartInfo1 = new ChartInfo("1900.01",11.001111111111f); // 只会显示四位
         chartData.add(chartInfo1);
         ChartInfo chartInfo2 = new ChartInfo("1900.02",12.00f);
         chartData.add(chartInfo2);
