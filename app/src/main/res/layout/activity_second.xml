@@ -4,4 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.test.basecustomview.view.CustomChartView
+        android:background="#55ff0000"
+        android:id="@+id/customChatView"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:paddingRight="8dp"/>
+
 </LinearLayout>

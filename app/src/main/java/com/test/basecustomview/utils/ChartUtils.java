@@ -131,7 +131,7 @@ public class ChartUtils {
             lineDataSet.setDrawValues(true);
             lineDataSet.setValueTextSize(10f);
             lineDataSet.setValueTextColor(Color.parseColor("#ff0000"));
-            lineDataSet.setValueFormatter(new CustomValueFormatter());
+            lineDataSet.setValueFormatter(new CustomValueFormatter()); //
             // 不显示定位线
             lineDataSet.setHighlightEnabled(false);
 

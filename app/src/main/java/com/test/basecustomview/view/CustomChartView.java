@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.test.basecustomview.R;
-import com.test.basecustomview.pojo.ProfitChartInfo;
+import com.test.basecustomview.pojo.ChartInfo;
 import com.test.basecustomview.utils.ChartUtils;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class CustomChartView extends FrameLayout {
      */
     public void hideLoading() {
         ivLoading.clearAnimation();
-//        goneView(ivLoading);
+        ivLoading.setVisibility(GONE);
     }
 
     /**
@@ -91,11 +91,11 @@ public class CustomChartView extends FrameLayout {
      * @param profitChartList
      * @return
      */
-    public List<Entry> getYValuesData(List<ProfitChartInfo.ProfitChartListBean> profitChartList) {
+    public List<Entry> getYValuesData(List<ChartInfo> profitChartList) {
         List<Entry> values = new ArrayList<>();
         for (int c = 0; c < profitChartList.size(); c++) {
-            ProfitChartInfo.ProfitChartListBean bean = profitChartList.get(c);
-            values.add(new Entry(bean.profitTotal, c));
+            ChartInfo bean = profitChartList.get(c);
+            values.add(new Entry(bean.getyValue(), c));
         }
         return values;
     }
@@ -106,10 +106,10 @@ public class CustomChartView extends FrameLayout {
      *
      * @return x轴数据
      */
-    public List<String> getXValuesData(List<ProfitChartInfo.ProfitChartListBean> profitChartList) {
+    public List<String> getXValuesData(List<ChartInfo> profitChartList) {
         List<String> xValues = new ArrayList<>();
-        for (ProfitChartInfo.ProfitChartListBean bean : profitChartList) {
-            xValues.add(bean.dateTime);
+        for (ChartInfo bean : profitChartList) {
+            xValues.add(bean.getxValue() + "");
         }
         return xValues;
     }

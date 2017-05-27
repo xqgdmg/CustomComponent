@@ -14,7 +14,7 @@
     <com.test.basecustomview.view.SwitchToggleView
         android:id="@+id/switch_toggle"
         android:layout_width="200dp"
-        android:layout_height="200dp"/>
+        android:layout_height="100dp"/>
 
     <!-- 交叉布局 -->
     <com.test.basecustomview.view.SwitchLayout
