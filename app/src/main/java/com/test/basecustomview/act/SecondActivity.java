@@ -1,7 +1,10 @@
 package com.test.basecustomview.act;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.github.mikephil.charting.data.Entry;
 import com.test.basecustomview.R;
@@ -19,6 +22,7 @@ public class SecondActivity extends Activity{
 
     private CustomChartView customChatView;
     private ArrayList<ChartInfo> chartData;
+    private Button mBtnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,14 @@ public class SecondActivity extends Activity{
 
     private void initView() {
         customChatView = (CustomChartView) findViewById(R.id.customChatView);
+        mBtnNext = (Button) findViewById(R.id.btnNext);
+
+        mBtnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this,ThirdActivity.class));
+            }
+        });
     }
 
     private void showChart(List<ChartInfo> list) {
