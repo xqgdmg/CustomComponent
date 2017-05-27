@@ -11,6 +11,10 @@ import android.widget.Toast;
 import com.test.basecustomview.R;
 import com.test.basecustomview.view.CustomDialog;
 
+/*
+ * Dialog 默认都是居中的
+ * PopupWindow 默认不是居中的
+ */
 public class ThirdActivity extends AppCompatActivity {
 
     private Button btnShowDialogFragment;
@@ -24,7 +28,6 @@ public class ThirdActivity extends AppCompatActivity {
         initView();
 
         initListener();
-
 
     }
 

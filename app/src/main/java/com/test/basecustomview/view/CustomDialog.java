@@ -49,6 +49,7 @@ public class CustomDialog extends DialogFragment {
         layoutParams.gravity = Gravity.BOTTOM;
         window.setAttributes(layoutParams);
 
+         // 设置 Dialog 的位置
         View view = inflater.inflate(R.layout.dialog_ar_land, container, false);
         btnCancel = (Button) view.findViewById(R.id.btnCancel);
         btnConfirm = (Button) view.findViewById(R.id.btnConfirm);
