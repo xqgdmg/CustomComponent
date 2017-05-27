@@ -6,19 +6,19 @@ import java.util.List;
  * Created by Chris on 2017/5/27.
  */
 public class ChartInfo {
-    private float xValue;
+    private String xValue;
     private float yValue;
 
-    public ChartInfo(float xValue, float yValue) {
+    public ChartInfo(String xValue, float yValue) {
         this.xValue = xValue;
         this.yValue = yValue;
     }
 
-    public float getxValue() {
+    public String getxValue() {
         return xValue;
     }
 
-    public void setxValue(float xValue) {
+    public void setxValue(String xValue) {
         this.xValue = xValue;
     }
 
