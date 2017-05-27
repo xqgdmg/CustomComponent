@@ -12,7 +12,6 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.test.basecustomview.MyApplication;
 import com.test.basecustomview.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +66,7 @@ public class ChartUtils {
         xAxis.setYOffset(-12);
 
         YAxis yAxis = chart.getAxisLeft();
-        yAxis.setValueFormatter(new CustomYAxisValueFormatter());
+        yAxis.setValueFormatter(new CustomYAxisValueFormatter()); // 格式化数据
         // 不显示y轴
         yAxis.setDrawAxisLine(false);
         // 设置y轴数据的位置
@@ -131,7 +130,7 @@ public class ChartUtils {
             lineDataSet.setDrawValues(true);
             lineDataSet.setValueTextSize(10f);
             lineDataSet.setValueTextColor(Color.parseColor("#ff0000"));
-            lineDataSet.setValueFormatter(new CustomValueFormatter()); //
+            lineDataSet.setValueFormatter(new CustomValueFormatter()); //格式化图表上显示的 Y 轴数据
             // 不显示定位线
             lineDataSet.setHighlightEnabled(false);
 
